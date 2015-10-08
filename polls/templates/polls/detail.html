@@ -1,4 +1,7 @@
 
+{% extends "polls/base.html" %}
+
+{% block main_content %}
 <h1>{{question.question_text}}</h1>
 <ul>
 	{% for choice in question.choice_set.all %}
@@ -6,3 +9,5 @@
 	{% endfor %}
 
 </ul>
+
+{% endblock %}
