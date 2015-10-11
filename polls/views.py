@@ -2,10 +2,7 @@ from django.shortcuts import get_object_or_404, render
 
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
-#from django.template import loader, RequestContext
-
-#from django.http import HttpResponse
-from django.views import generic 
+from django.views import generic
 
 from .models import Question, Choice
 
@@ -72,4 +69,3 @@ def vote(request, question_id):
 		selected_choice.votes += 1
 		selected_choice.save()
 		return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
-	
