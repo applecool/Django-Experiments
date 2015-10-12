@@ -20,15 +20,6 @@ class IndexView(generic.ListView):
 	def get_queryset(self):
 		return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
-#def index(request):
-	#latest_question_list = Question.objects.order_by('-pub_date')[:5]
-	#context = {'latest_question_list': latest_question_list}
-	#template = loader.get_template('polls/index.html')
-	#context = RequestContext(request, {'latest_question_list':latest_question_list,})
-	#output = ', '.join([p.question_text for p in latest_question_list])
-	#return HttpResponse(output)
-	#return HttpResponse(template.render(context))
-	#return render(request, 'polls/index.html', context)
 
 class DetailView(generic.DetailView):
 	model = Question
@@ -37,15 +28,6 @@ class DetailView(generic.DetailView):
 	def get_queryset(self):
 		return Question.objects.filter(pub_date__lte=timezone.now())
 
-#def detail(request, question_id):
-	#question = get_object_or_404(Question, pk=question_id)
-	#return HttpResponse("This is the detail view of the question: %s" % question_id)
-	#try:
-	#	question = Question.objects.get(pk=question_id)
-	#except Question.DoesNotExist:
-	#	raise Http404("Question doesn't exist.")
-	#else:
-	#return render(request, 'polls/detail.html' ,{'question':question})
 
 class ResultsView(generic.DetailView):
 	model = Question
@@ -54,9 +36,6 @@ class ResultsView(generic.DetailView):
 	def get_queryset(self):
 		return Question.objects.filter(pub_date__lte=timezone.now())
 
-#def results(request, question_id):
-	#question = get_object_or_404(Question, pk=question_id)
-	#return render(request, 'polls/results.html' ,{'question':question})
 
 def vote(request, question_id):
 	p = get_object_or_404(Question, pk=question_id)
