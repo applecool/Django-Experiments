@@ -1,7 +1,10 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>My Company</title>
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 </head>
 <body>
 	{% include "polls/header.html" %}
